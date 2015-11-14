@@ -12,16 +12,12 @@ public class LoginTest {
     public static void errorOnLoginWithInvalidCredentials() throws InterruptedException {
         WebDriver driver = new FirefoxDriver();
         driver.get("https://www.linkedin.com/");
-        driver.findElement(By.id("login-email")).sendKeys("Alex@gmail.com");
-        driver.findElement(By.id("login-password")).sendKeys("1234222789");
+        driver.findElement(By.id("login-email")).sendKeys("testautomation.acc@gmail.com");
+        driver.findElement(By.id("login-password")).sendKeys("Testautomation123");
         driver.findElement(By.name("submit")).click();
         Thread.sleep(5000);
-        WebElement errorMassage = driver.findElement(By.xpath("//*[text()='There were one or more errors in your submission. Please correct the marked fields below.']"));
+        WebElement errorMassage = driver.findElement(By.xpath("//*[@id='control_gen_2']/p/strong"));
         //There were one or more errors in your submission. Please correct the marked fields below.
         Assert.assertTrue(errorMassage.isDisplayed(),"Element is not Displayed");
-
-
-
-
     }
 }
