@@ -9,6 +9,7 @@ public class LoginRegistrationPage {
     protected WebDriver driver;
 
     public LoginRegistrationPage(WebDriver driver) {
+
         this.driver = driver;
     }
 
@@ -37,6 +38,13 @@ public class LoginRegistrationPage {
 
     @FindBy(xpath = "//input[@name='submit']")
     private WebElement loginSubmitButton;
+
+    @FindBy(xpath = "//div[@class='alert error']//strong")
+    private WebElement alertErrorMessageBox;
+
+    public String getErrorMessageText() {
+        return alertErrorMessageBox.getText();
+    }
 
     public HomePage loginUser (String useEmail, String usePassword){
         loginEmailInput.sendKeys(useEmail);

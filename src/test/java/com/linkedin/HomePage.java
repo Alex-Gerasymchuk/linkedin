@@ -26,5 +26,8 @@ public class HomePage {
         }
         return false;
     }
+    public void close() {
+        driver.quit();
+    }
 
 }

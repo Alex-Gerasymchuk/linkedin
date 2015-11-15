@@ -9,6 +9,9 @@ public class ProfilePage {
     public ProfilePage(WebDriver driver){
         this.driver = driver;
     }
+    public void close() {
+        driver.quit();
+    }
 
 }
 
