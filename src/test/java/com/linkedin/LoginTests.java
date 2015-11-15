@@ -54,7 +54,6 @@ public class LoginTests {
     @Test
     public void loadProfilePageTest(){
         String usePassword = "Testautomation123";
-        loginRegistrationPage = PageFactory.initElements(new FirefoxDriver(), LoginRegistrationPage.class);
         loginRegistrationPage.open();
         homePage = loginRegistrationPage.loginUser(useEmail, usePassword);
         profilePage = homePage.openProfilePage();
