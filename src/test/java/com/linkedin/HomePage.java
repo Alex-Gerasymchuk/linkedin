@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage {
+    public class HomePage {
     protected WebDriver driver;
 
     public HomePage(WebDriver driver){
@@ -20,12 +20,7 @@ public class HomePage {
         return PageFactory.initElements(driver, ProfilePage.class);
     }
 
-    public boolean isPageLoaded() {
-        if (driver.getTitle().contentEquals("Добро пожаловать! | LinkedIn")) {
-            return true;
-        }
-        return false;
-    }
+
     public void close() {
         driver.quit();
     }

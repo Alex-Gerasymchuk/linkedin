@@ -2,15 +2,17 @@ package com.linkedin;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginRegistrationPage {
+public class LoginRegistrationPage  {
     protected WebDriver driver;
 
     public LoginRegistrationPage(WebDriver driver) {
 
         this.driver = driver;
+
     }
 
     //RegistrationElements:
@@ -49,9 +51,10 @@ public class LoginRegistrationPage {
         return alertErrorMessageBox.getText();
     }
 
-    public HomePage loginUser (String useEmail, String usePassword){
-        loginEmailInput.sendKeys(useEmail);
-        loginPasswordInput.sendKeys(usePassword);
+
+    public HomePage loginUser (String userEmail, String userPassword){
+        loginEmailInput.sendKeys(userEmail);
+        loginPasswordInput.sendKeys(userPassword);
         loginSubmitButton.click();
         return PageFactory.initElements(driver, HomePage.class);
 
@@ -67,11 +70,13 @@ public class LoginRegistrationPage {
 
     public void open() {
         driver.get("https://www.Linkedin.com/");
+
     }
 
     public void close() {
         driver.quit();
     }
+
 }
 
 
