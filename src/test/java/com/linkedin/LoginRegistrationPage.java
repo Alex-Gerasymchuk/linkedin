@@ -39,10 +39,13 @@ public class LoginRegistrationPage {
     @FindBy(xpath = "//input[@name='submit']")
     private WebElement loginSubmitButton;
 
+    @FindBy(xpath = "//p[@class='password-wrapper']//a")
+    private WebElement forgotPasswordButton;
+
     @FindBy(xpath = "//div[@class='alert error']//strong")
     private WebElement alertErrorMessageBox;
 
-    public String getErrorMessageText() {
+    public String getAlertErrorMessageText() {
         return alertErrorMessageBox.getText();
     }
 

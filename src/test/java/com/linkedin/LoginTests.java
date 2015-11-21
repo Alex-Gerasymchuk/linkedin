@@ -12,6 +12,7 @@ public class LoginTests {
         private LoginRegistrationPage loginRegistrationPage;
         private HomePage homePage;
         private ProfilePage profilePage;
+
         String useEmail = "testautomation.acc@gmail.com";
 
     @BeforeMethod
@@ -34,16 +35,20 @@ public class LoginTests {
     }
 
     @Test(dataProvider = "userLoginTestData")
+
     public void userLoginGenericTest(String usePassword) {
         loginRegistrationPage.open();
         homePage = loginRegistrationPage.loginUser(useEmail, usePassword);
 
-        switch(usePassword) {
+
+        switch (usePassword) {
             case "Testautomation123":
                 Assert.assertTrue(homePage.isPageLoaded());
                 break;
             case "Testautomation":
                 Assert.assertFalse(homePage.isPageLoaded());
+                String errorMsg = "There were one or more errors in your submission. Please correct the marked fields below.";
+                Assert.assertEquals(loginRegistrationPage.getAlertErrorMessageText(),errorMsg,"Expected error message not found");
                 break;
             default:
                 break;
