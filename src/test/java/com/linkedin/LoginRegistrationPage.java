@@ -77,6 +77,7 @@ public class LoginRegistrationPage  {
         driver.quit();
     }
 
+
 }
 
 
