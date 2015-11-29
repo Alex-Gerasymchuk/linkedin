@@ -34,16 +34,16 @@ public class TestRailRESTTest {
     @Test
     public void postTestCaseTest() throws JSONException {
         int testCaseId = 1;
-        int testCaseStatus = 2;
+        int testCaseStatus = 1;
         JSONObject obj = new JSONObject();
-       obj.put("status_id", testCaseStatus);
+        obj.put("status_id", testCaseStatus);
 
         Response response;
         response = given().header("Authorization","Basic YWxleC5nZXJhc3ltY2h1a0BpLnVhOkNFc3Z0U25VR3B0aXdSQ0ZZOWhK")
                 .body("{ \"status_id\": 1 }").when().post("/index.php?/api/v2/add_result/{t}", testCaseId);
 
         System.out.print(response.asString());
-        Assert.assertTrue(response.asString().contains("\"status_id\":" + testCaseStatus));
+        Assert.assertTrue(response.asString().contains("\"status_id\":"+testCaseStatus));
         Assert.assertEquals(200, response.getStatusCode());
     }
 
