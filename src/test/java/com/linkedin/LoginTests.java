@@ -1,6 +1,5 @@
 package com.linkedin;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -16,12 +15,10 @@ public class LoginTests {
 
         String userEmail = "testautomation.acc@gmail.com";
 
-
-
-    @BeforeMethod
-    public void initLoginPage(){
-        loginRegistrationPage = PageFactory.initElements(new FirefoxDriver(), LoginRegistrationPage.class);
-    }
+//    @BeforeMethod
+//    public void initLoginPage(){
+//        loginRegistrationPage = PageFactory.initElements(new FirefoxDriver(), LoginRegistrationPage.class);
+//    }
 
 
     @AfterMethod
@@ -40,6 +37,7 @@ public class LoginTests {
 
     public void userLoginGenericTest(String userPassword) {
         loginRegistrationPage.open();
+
 
 //        Assert.assertTrue(loginRegistrationPage.isPageLoaded("Test"));
        HomePage homePage = loginRegistrationPage.loginUser(userEmail, userPassword);
@@ -66,7 +64,7 @@ public class LoginTests {
         loginRegistrationPage.open();
        HomePage homePage = loginRegistrationPage.loginUser(userEmail, usePassword);
        ProfilePage profilePage = homePage.openProfilePage();
-       // profilePage.close();
+        profilePage.close();
         //Assert that profile page is load.
 
     }

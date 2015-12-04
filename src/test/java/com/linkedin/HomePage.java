@@ -5,11 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-    public class HomePage {
+    public class HomePage extends AbstractPage {
     protected WebDriver driver;
 
-    public HomePage(WebDriver driver){
-        this.driver = driver;
+    public HomePage (WebDriver driver){
+        super(driver);
     }
 
     @FindBy(xpath = "//a[contains(text(),'Profile')]")

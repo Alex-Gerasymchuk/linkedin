@@ -2,16 +2,15 @@ package com.linkedin;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginRegistrationPage  {
+public class LoginRegistrationPage extends AbstractPage {
     protected WebDriver driver;
 
     public LoginRegistrationPage(WebDriver driver) {
 
-        this.driver = driver;
+        super(driver);
 
     }
 
@@ -68,10 +67,11 @@ public class LoginRegistrationPage  {
         joinButton.click();
     }
 
-    public void open() {
-        driver.get("https://www.Linkedin.com/");
-
-    }
+//    public void open() {
+//
+//        driver.get("https://www.Linkedin.com/");
+//       return PageFactory.initElements(driver, LoginRegistrationPage.class);
+//    }
 
     public void close() {
         driver.quit();
